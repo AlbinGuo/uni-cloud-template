@@ -5,15 +5,16 @@
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "首页",
-				"app-plus": {
+				"navigationBarTextStyle": "white"
+				// "app-plus": {
 					
-				},
-				"mp-weixin": {
+				// },
+				// "mp-weixin": {
 					
-				},
-				"h5": {
+				// },
+				// "h5": {
 					
-				}
+				// }
 			}
 		},
 		{
