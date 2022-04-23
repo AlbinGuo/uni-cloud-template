@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<image class="logo" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-0eb72ce7-d734-4341-87ef-6606f4d285a8/d01dbae5-ba90-40d6-b354-8158d6294b45.jpg"></image>
+		<image class="logo" :src="img"></image>
 		<view class="text-area">
 			<text class="title">{{title}}</text>
 			{{ message }}
@@ -15,6 +15,7 @@
 		<button @click="updateData">更新数据</button>
 		
 		<button @click="open">open</button>
+		<button @click="deletePic">delete pic</button>
 		<view>uniapp</view>
 	</view>
 </template>
@@ -23,6 +24,7 @@
 	export default {
 		data() {
 			return {
+				img:'',
 				title: 'Hello',
 				message: 'hello world'
 			}
@@ -93,6 +95,7 @@
 				})
 			},
 			open(){
+				var _this = this
 				uni.chooseImage({
 					count:1,
 					success(res) {
@@ -104,11 +107,23 @@
 							cloudPath: fileName,
 							success(res) {
 								console.log("上传成功",res)
+								_this.img = res.fileID
 							},
 							fail(e) {
 								console.log("上传失败", e)
 							}
 						})
+					},
+					fail(e) {
+						console.log(e)
+					}
+				})
+			},
+			deletePic(){
+				uniCloud.deleteFile({
+					fileList: ['https://vkceyugu.cdn.bspapp.com/VKCEYUGU-0eb72ce7-d734-4341-87ef-6606f4d285a8/d01dbae5-ba90-40d6-b354-8158d6294b45.jpg'],
+					success(res) {
+						console.log(res)
 					},
 					fail(e) {
 						console.log(e)
