@@ -5,11 +5,16 @@
 			<view class="navbar-fixed-search" @click="">
 				<view class="navbar-fixed-search_icon"></view>
 				<view class="navbar-fixed-search_text">
-					uniapp、vue
+					搜你想搜的内容
 				</view>
 			</view>
 		</view>
-		<view style="height:90rpx;"></view>
+		<!-- #ifndef H5 -->
+		<view :style="{height: (statusBarHeight * 2) + 30 + 'rpx'}"></view>
+		<!-- #endif -->
+		<!-- #ifdef H5 -->
+		<view style="height: 80rpx;"></view>
+		<!-- #endif -->
 	</view>
 </template>
 
@@ -26,6 +31,13 @@
 			const info = uni.getSystemInfoSync()
 			console.log('info:', info)
 			this.statusBarHeight = info.statusBarHeight * 2; // 2px = 1rpx
+			
+			// 获取微信胶囊信息 h5 app mp-alipay不支持
+			// #ifndef H5 || APP-PLUS || MP-ALIPAY
+			const menuButtonInfo = uni.getMenuButtonBoundingClientRect()
+			console.log(menuButtonInfo)
+			// #endif
+			
 		}
 	}
 </script>
@@ -65,6 +77,7 @@
 				&_text {
 					width: 460rpx;
 					height: 60rpx;
+					color: #7d7d7d;
 					line-height: 60rpx;
 					padding-left: 40rpx;
 				}
