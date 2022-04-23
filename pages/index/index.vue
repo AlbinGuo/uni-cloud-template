@@ -13,6 +13,8 @@
 		<button @click="findData">查询数据</button>
 		<button @click="deleteData">删除数据</button>
 		<button @click="updateData">更新数据</button>
+		
+		<button @click="open">open</button>
 		<view>uniapp</view>
 	</view>
 </template>
@@ -87,6 +89,29 @@
 					},
 					complete(r) {
 						console.log("completed", r)
+					}
+				})
+			},
+			open(){
+				uni.chooseImage({
+					count:1,
+					success(res) {
+						const tempFilePath = res.tempFilePaths[0]
+						const fileName = res.tempFiles[0].name
+						console.log("上传", res)
+						uniCloud.uploadFile({
+							filePath: tempFilePath,
+							cloudPath: fileName,
+							success(res) {
+								console.log("上传成功",res)
+							},
+							fail(e) {
+								console.log("上传失败", e)
+							}
+						})
+					},
+					fail(e) {
+						console.log(e)
 					}
 				})
 			}
