@@ -5,10 +5,10 @@
 		<!-- 导航栏 -->
 		<nav-bar></nav-bar>
 		<view>
-			<tab :list="tabList" @tab="tab"></tab>
+			<tab :list="tabList" @tab="tab" :tabIndex="tabIndex"></tab>
 		</view>		
 		<view class="home-list">
-			<list :tab-list="tabList"></list>
+			<list :tab-list="tabList" @change="change" :activeIndex="activeIndex"></list>
 		</view>
 		
 	</view>
@@ -28,7 +28,9 @@
 		},
 		data() {
 			return {
-				tabList: []
+				tabList: [],
+				tabIndex: 0,
+				activeIndex: 0
 			}
 		},
 		onLoad() {
@@ -40,8 +42,12 @@
 			console.log(option)
 		},
 		methods: {
-			tab(data, index) {
-				console.log(data, index)
+			change(current) {
+				console.log("change:", current)
+				this.tabIndex = current
+			},
+			tab({data, index}) {
+				this.activeIndex = index
 			},
 			async getList() {
 				try{
@@ -77,7 +83,7 @@
 		display: flex;
 		flex-direction: column;
 		flex: 1;
-		border: 1px blueviolet solid;
+		// border: 1px blueviolet solid;
 		overflow: hidden;
 		.home-list {
 			flex: 1;
