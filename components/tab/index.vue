@@ -28,32 +28,7 @@
 		},
 		data() {
 			return {
-				list: [
-					{
-						name: 'uni-app'
-					},
-					{
-						name: 'Mysql数据库'
-					},
-					{
-						name: 'Vue'
-					},
-					{
-						name: '前端'
-					},
-					{
-						name: '数据库'
-					},
-					{
-						name: '后端'
-					},
-					{
-						name: 'MongoDB'
-					},
-					{
-						name: 'Javascript'
-					}
-				]
+				
 			};
 		}
 	}
