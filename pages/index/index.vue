@@ -33,15 +33,15 @@
 			console.log(option)
 		},
 		methods: {
-			getLabel() {
-				const _this = this
-				uniCloud.callFunction({
-					name: 'get_label'
-				}).then((res) => {
-					const {result} = res
-					console.log('result==',result.data)
-					_this.tabList = result.data
-				})
+			async getLabel() {
+				try{
+					const res = await this.$api.getLabel({
+						name: 'get_label'
+					})
+					this.tabList = res.data
+				}catch(e){
+					console.error('e===',e)
+				}
 			}
 		}
 	}

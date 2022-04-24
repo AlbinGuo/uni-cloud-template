@@ -1,8 +1,13 @@
 import App from './App'
+import api from'@/common/api/index.js'
 
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false
+
+// Vue原型挂载
+Vue.prototype.$api = api
+
 App.mpType = 'app'
 const app = new Vue({
     ...App
