@@ -7,13 +7,9 @@
 		<view>
 			<tab :list="tabList" @tab="tab"></tab>
 		</view>		
-		<list-scroll>
-			<view>
-				<list-card mode="base"></list-card>
-				<list-card mode="image"></list-card>
-				<list-card mode="column"></list-card>
-			</view>		
-		</list-scroll>
+		<view class="home-list">
+			<list :tab-list="tabList"></list>
+		</view>
 		
 	</view>
 </template>
@@ -23,7 +19,8 @@
 	import NavBar from "@/components/navbar/index"
 	import Tab from "@/components/tab/index"
 	import ListScroll from "@/components/list-scroll/list-scroll.vue"
-	import ListCard from "../../components/list-card/list-card.vue"
+	import ListCard from "@/components/list-card/list-card.vue"
+	import List from "@/components/list/list.vue"
 	export default {
 		components:{
 			NavBar,
@@ -81,7 +78,12 @@
 		flex-direction: column;
 		flex: 1;
 		border: 1px blueviolet solid;
-		
+		overflow: hidden;
+		.home-list {
+			flex: 1;
+			height: 100%;
+			box-sizing: border-box;
+		}
 	}
 	
 </style>

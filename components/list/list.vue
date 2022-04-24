@@ -1,12 +1,26 @@
 <template>
-	<view>
-		
-	</view>
+	<swiper class="home-swiper">
+		<swiper-item class="swiper-item" v-for="(item, index) in tabList" :key="index">
+			<list-item></list-item>
+		</swiper-item>
+	</swiper>
 </template>
 
 <script>
+	import ListItem from "@/components/list/list-item.vue"
 	export default {
 		name:"list",
+		components: {
+			ListItem
+		},
+		props: {
+			tabList: {
+				type: Array,
+				default() {
+					return []
+				}
+			}
+		},
 		data() {
 			return {
 				
@@ -15,6 +29,16 @@
 	}
 </script>
 
-<style>
-
+<style lang="scss">
+.home-swiper {
+	height: 100%;
+	.swiper-item {
+		height: 100%;
+		overflow: hidden;
+		box-sizing: border-box;
+		.list-scroll {
+			height: 100%;
+		}
+	}
+}
 </style>

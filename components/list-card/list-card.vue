@@ -2,11 +2,11 @@
 	<view>
 		<view class="list-card" v-if="mode === 'base'">
 			<view class="card-item-img">
-				<image src="../../static/07-01.png" mode="aspectFill"></image>
+				<image src="../../static/icon_home.png" mode="aspectFill"></image>
 			</view>
 			<view class="card-item-content" style="margin-left: 10rpx;">
 				<view class="card-item-content-title">
-					大水水水水水水水水水水水水水水水大水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水
+					4月24日，在北京市新型冠状病毒肺炎疫情防控工作第313场新闻发布会上，朝阳区副区长杨蓓蓓介绍，截至24日16时，朝阳区新增确诊病例11名。其中一病例4月22日抗原检测阳性，4月23日确诊。
 				</view>
 				<view class="card-item-content-tag">
 					<view class="card-item-content-tag-text">
@@ -25,11 +25,11 @@
 		<view class="list-card mode-column" v-if="mode === 'column'">
 			<view class="card-item-content">
 				<view class="card-item-content-title">
-					大水水水水水水水水水水水水水水水大水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水
+					4月24日晚，家乐福向记者表示，家乐福北京所有门店今晚延长营业时间，等所有顾客离店后才会闭店。
 				</view>
 				<view class="listcard-image">
 					<view class="card-item-img" v-for="item in 3">
-						<image src="../../static/07-01.png" mode="aspectFill"></image>
+						<image src="../../static/icon_home_active.png" mode="aspectFill"></image>
 					</view>
 				</view>
 				<view class="card-item-content-tag">
@@ -54,7 +54,7 @@
 					</view>
 				</view>
 				<view class="card-item-content-title">
-					大水水水水水水水水水水水水水水水大水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水
+					今天早上9点多，位于拱墅区的世纪联华庆春店褪去了昨日的“高人气”，客流和平日相差不多，付款通道和门店外都没有排队现象，消费者的购物车也不像昨天那样满满当当。
 				</view>
 				<view class="card-item-content-tag">
 					<view class="card-item-content-tag-text">
