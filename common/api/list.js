@@ -1,15 +1,15 @@
 import $http from '../http'
 
-export const getList = (data) => {
+export const getLabel = (data) => {
 	return $http({
-		url: 'login',
+		url: 'get_label',
 		data
 	})
 }
 
-export const getLabel = (data) => {
+export const getList = (data) => {
 	return $http({
-		url: 'get_label',
+		url: 'get_list',
 		data
 	})
 }

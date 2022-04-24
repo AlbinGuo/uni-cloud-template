@@ -2,6 +2,7 @@
 	<view class="tab">
 		<scroll-view class="tab-scroll" scroll-x>
 			<view class="tab-scroll-box">
+				
 				<view class="tab-scroll-box-item" @click="clickTab(item, index)"
 									:class="{active: activeIndex === index}"
 									v-for="(item, index) in list" :key="index">

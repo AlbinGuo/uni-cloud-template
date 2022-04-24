@@ -1,7 +1,7 @@
 <template>
 	<swiper class="home-swiper" :current="activeIndex" @change="change">
 		<swiper-item class="swiper-item" v-for="(item, index) in tabList" :key="index">
-			<list-item></list-item>
+			<list-item :list="list"></list-item>
 		</swiper-item>
 	</swiper>
 </template>
@@ -27,13 +27,24 @@
 		},
 		data() {
 			return {
-				
+				list: []
 			};
+		},
+		created() {
+			this.getList()
 		},
 		methods: {
 			change(e) {
 				const {current} = e.detail
 				this.$emit("change", current)
+			},
+		async getList(){
+				try{
+					const list = await this.$api.getList()
+					this.list = list.data
+				}catch(e){
+					console.error(e)
+				}
 			}
 		}
 	}

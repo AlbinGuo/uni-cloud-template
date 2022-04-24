@@ -29,9 +29,7 @@
 		created() {
 			// 获取手机系统信息
 			const info = uni.getSystemInfoSync()
-			console.log('info:', info)
 			this.statusBarHeight = info.statusBarHeight * 2; // 2px = 1rpx
-			
 			// 获取微信胶囊信息 h5 app mp-alipay不支持
 			// #ifndef H5 || APP-PLUS || MP-ALIPAY
 			const menuButtonInfo = uni.getMenuButtonBoundingClientRect()

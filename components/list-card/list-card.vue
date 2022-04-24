@@ -1,69 +1,69 @@
 <template>
 	<view>
-		<view class="list-card" v-if="mode === 'base'">
+		<view class="list-card" v-if="item.mode === 'base'">
 			<view class="card-item-img">
-				<image src="../../static/icon_home.png" mode="aspectFill"></image>
+				<image lazy-load="../../static/icon_home.png" :src="item.cover[0]" mode="aspectFill"></image>
 			</view>
 			<view class="card-item-content" style="margin-left: 10rpx;">
 				<view class="card-item-content-title">
-					4月24日，在北京市新型冠状病毒肺炎疫情防控工作第313场新闻发布会上，朝阳区副区长杨蓓蓓介绍，截至24日16时，朝阳区新增确诊病例11名。其中一病例4月22日抗原检测阳性，4月23日确诊。
+					{{item.title}}
 				</view>
 				<view class="card-item-content-tag">
 					<view class="card-item-content-tag-text">
-						<view class="card-item-content-tag-text-item" v-for="item in 2">
-							前端
+						<view class="card-item-content-tag-text-item">
+							{{item.classify}}
 						</view>
 					</view>
 					<text class="card-item-content-tag-readcount">
-						250浏览
+						{{item.browse_count}}浏览
 					</text>
 				</view>
 			</view>
 		</view>
 		
 		<!-- 多图模式 -->
-		<view class="list-card mode-column" v-if="mode === 'column'">
+		<view class="list-card mode-column" v-if="item.mode === 'column'">
 			<view class="card-item-content">
 				<view class="card-item-content-title">
-					4月24日晚，家乐福向记者表示，家乐福北京所有门店今晚延长营业时间，等所有顾客离店后才会闭店。
+					{{item.title}} 
 				</view>
 				<view class="listcard-image">
-					<view class="card-item-img" v-for="item in 3">
-						<image src="../../static/icon_home_active.png" mode="aspectFill"></image>
+					<view class="card-item-img" v-if="index < 3" v-for="(cover,index) in item.cover" :key="index">
+						<image :src="cover" mode="aspectFill"></image>
 					</view>
 				</view>
 				<view class="card-item-content-tag">
 					<view class="card-item-content-tag-text">
-						<view class="card-item-content-tag-text-item" v-for="item in 2">
-							前端
+						<view class="card-item-content-tag-text-item">
+							{{item.classify}}
 						</view>
 					</view>
 					<text class="card-item-content-tag-readcount">
-						250浏览
+						{{item.browse_count}}浏览
 					</text>
 				</view>
 			</view>
 		</view>
 		
 		<!-- 大图模式 -->
-		<view class="list-card mode-column" v-if="mode === 'image'">
+		<view class="list-card mode-column" v-if="item.mode === 'image'">
 			<view class="card-item-content">
 				<view class="listcard-image">
 					<view class="card-item-img">
-						<image src="../../static/07-01.png" mode="aspectFill"></image>
+						<image lazy-load="../../static/07-01.png" :src="item.cover[0]" mode="aspectFill"></image>
 					</view>
 				</view>
 				<view class="card-item-content-title">
-					今天早上9点多，位于拱墅区的世纪联华庆春店褪去了昨日的“高人气”，客流和平日相差不多，付款通道和门店外都没有排队现象，消费者的购物车也不像昨天那样满满当当。
+					{{item.title}}
 				</view>
 				<view class="card-item-content-tag">
 					<view class="card-item-content-tag-text">
-						<view class="card-item-content-tag-text-item" v-for="item in 2">
-							前端
+						<view class="card-item-content-tag-text-item">
+							{{item.classify}}
 						</view>
 					</view>
 					<text class="card-item-content-tag-readcount">
-						250浏览
+						{{item.browse_count}}浏览
 					</text>
 				</view>
 			</view>
@@ -78,6 +78,12 @@
 			mode: {
 				type: String,
 				default: "base"
+			},
+			item: {
+				type: Object,
+				default: () => {
+					return {}
+				}
 			}
 		},
 		data() {
