@@ -1,13 +1,18 @@
 <template>
-	<view class="content">
+	<view class="home">
 		<!-- 状态栏 -->
 		<!-- 搜索框 -->
 		<!-- 导航栏 -->
 		<nav-bar></nav-bar>
-		<tab :list="tabList"></tab>
-		<!-- <view v-for="item in 100">
-			hello - {{item}}
-		</view> -->
+		<view>
+			<tab :list="tabList" @tab="tab"></tab>
+		</view>		
+		<list-scroll>
+			<view v-for="item in 10">
+				<list-card></list-card>
+			</view>		
+		</list-scroll>
+		
 	</view>
 </template>
 
@@ -15,6 +20,8 @@
 	//easyCom
 	import NavBar from "@/components/navbar/index"
 	import Tab from "@/components/tab/index"
+	import ListScroll from "@/components/list-scroll/list-scroll.vue"
+	import ListCard from "../../components/list-card/list-card.vue"
 	export default {
 		components:{
 			NavBar,
@@ -29,11 +36,14 @@
 			this.getList()
 			this.getLabel()
 		},
-		// tabbar点击触发
+		// tabbar点击触发 
 		onTabItemTap(option) {
 			console.log(option)
 		},
 		methods: {
+			tab(data, index) {
+				console.log(data, index)
+			},
 			async getList() {
 				try{
 					const res = await this.$api.getList({
@@ -60,6 +70,16 @@
 
 <style lang="scss">
 	$width: 200rpx;
-	
+	page {
+		height: 100%;
+		display: flex;
+	}
+	.home {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		border: 1px blueviolet solid;
+		
+	}
 	
 </style>
