@@ -7,9 +7,13 @@ exports.main = async (event, context) => {
 	
 	const collection = db.collection('user')
 	let res = collection.add(event)
-	console.log('插入数据', res)
+	console.log('插入数据', res.result)
 	
 	
 	//返回数据给客户端
-	return res
+	return {
+		code: 200,
+		msg: '登录成功',
+		data: res.result
+	}
 };

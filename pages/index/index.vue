@@ -26,6 +26,7 @@
 			}
 		},
 		onLoad() {
+			this.getList()
 			this.getLabel()
 		},
 		// tabbar点击触发
@@ -33,6 +34,16 @@
 			console.log(option)
 		},
 		methods: {
+			async getList() {
+				try{
+					const res = await this.$api.getList({
+						name: 'login'
+					})
+					this.tabList = res.data
+				}catch(e){
+					console.error('login err',e)
+				}
+			},
 			async getLabel() {
 				try{
 					const res = await this.$api.getLabel({
@@ -40,7 +51,7 @@
 					})
 					this.tabList = res.data
 				}catch(e){
-					console.error('e===',e)
+					console.error('getLabel',e)
 				}
 			}
 		}
