@@ -270,14 +270,18 @@ var render = function() {
       _c(
         "list-scroll",
         { attrs: { _i: 4 } },
-        _vm._l(10, function(item, $10, $20, $30) {
-          return _c(
+        [
+          _c(
             "v-uni-view",
-            { attrs: { _i: "5-" + $30 } },
-            [_c("list-card", { attrs: { _i: "6-" + $30 } })],
+            { attrs: { _i: 5 } },
+            [
+              _c("list-card", { attrs: { _i: 6 } }),
+              _c("list-card", { attrs: { _i: 7 } }),
+              _c("list-card", { attrs: { _i: 8 } })
+            ],
             1
           )
-        }),
+        ],
         1
       )
     ],
@@ -1106,61 +1110,227 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-uni-view",
-    { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
+    { attrs: { _i: 0 } },
     [
-      _c(
-        "v-uni-view",
-        { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
-        [
-          _c("v-uni-image", {
-            attrs: { src: _vm._$g(2, "a-src"), mode: "aspectFill", _i: 2 }
-          })
-        ],
-        1
-      ),
-      _c(
-        "v-uni-view",
-        { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
-        [
-          _c(
+      _vm._$g(1, "i")
+        ? _c(
             "v-uni-view",
-            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
-            [
-              _vm._v(
-                "大水水水水水水水水水水水水水水水大水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水"
-              )
-            ]
-          ),
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+            { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
             [
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
-                _vm._l(2, function(item, $10, $20, $30) {
-                  return _c(
-                    "v-uni-view",
-                    {
-                      staticClass: _vm._$g("7-" + $30, "sc"),
-                      attrs: { _i: "7-" + $30 }
-                    },
-                    [_vm._v("前端")]
-                  )
-                }),
+                { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
+                [
+                  _c("v-uni-image", {
+                    attrs: {
+                      src: _vm._$g(3, "a-src"),
+                      mode: "aspectFill",
+                      _i: 3
+                    }
+                  })
+                ],
                 1
               ),
               _c(
-                "v-uni-text",
-                { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
-                [_vm._v("250浏览")]
+                "v-uni-view",
+                {
+                  staticClass: _vm._$g(4, "sc"),
+                  staticStyle: { "margin-left": "10rpx" },
+                  attrs: { _i: 4 }
+                },
+                [
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+                    [
+                      _vm._v(
+                        "大水水水水水水水水水水水水水水水大水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水"
+                      )
+                    ]
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
+                    [
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+                        _vm._l(2, function(item, $10, $20, $30) {
+                          return _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("8-" + $30, "sc"),
+                              attrs: { _i: "8-" + $30 }
+                            },
+                            [_vm._v("前端")]
+                          )
+                        }),
+                        1
+                      ),
+                      _c(
+                        "v-uni-text",
+                        { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+                        [_vm._v("250浏览")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
               )
             ],
             1
           )
-        ],
-        1
-      )
+        : _vm._e(),
+      _vm._$g(10, "i")
+        ? _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
+            [
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
+                [
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
+                    [
+                      _vm._v(
+                        "大水水水水水水水水水水水水水水水大水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水"
+                      )
+                    ]
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
+                    _vm._l(3, function(item, $11, $21, $31) {
+                      return _c(
+                        "v-uni-view",
+                        {
+                          staticClass: _vm._$g("14-" + $31, "sc"),
+                          attrs: { _i: "14-" + $31 }
+                        },
+                        [
+                          _c("v-uni-image", {
+                            attrs: {
+                              src: _vm._$g("15-" + $31, "a-src"),
+                              mode: "aspectFill",
+                              _i: "15-" + $31
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    }),
+                    1
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+                    [
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+                        _vm._l(2, function(item, $12, $22, $32) {
+                          return _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("18-" + $32, "sc"),
+                              attrs: { _i: "18-" + $32 }
+                            },
+                            [_vm._v("前端")]
+                          )
+                        }),
+                        1
+                      ),
+                      _c(
+                        "v-uni-text",
+                        { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+                        [_vm._v("250浏览")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._$g(20, "i")
+        ? _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
+            [
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+                [
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
+                    [
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
+                        [
+                          _c("v-uni-image", {
+                            attrs: {
+                              src: _vm._$g(24, "a-src"),
+                              mode: "aspectFill",
+                              _i: 24
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+                    [
+                      _vm._v(
+                        "大水水水水水水水水水水水水水水水大水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水"
+                      )
+                    ]
+                  ),
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
+                    [
+                      _c(
+                        "v-uni-view",
+                        { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
+                        _vm._l(2, function(item, $13, $23, $33) {
+                          return _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("28-" + $33, "sc"),
+                              attrs: { _i: "28-" + $33 }
+                            },
+                            [_vm._v("前端")]
+                          )
+                        }),
+                        1
+                      ),
+                      _c(
+                        "v-uni-text",
+                        { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+                        [_vm._v("250浏览")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e()
     ],
     1
   )
@@ -1198,7 +1368,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 
 {
-  name: "list-card",
+  name: "list-card", props: ["mode"],
   data: function data() {
     return {
       wxsProps: {} };
@@ -1253,7 +1423,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../soft/install/HBuilderX.3.4.6.20220420/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.list-card[data-v-cb743578] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  padding: 10rpx;\r\n  margin: 10rpx;\r\n  border-radius: 5rpx;\r\n  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);\r\n  box-sizing: border-box;\n}\n.list-card .card-item-img[data-v-cb743578] {\r\n  width: 160rpx;\r\n  height: 160rpx;\r\n  border-radius: 10rpx;\r\n  background-color: aqua;\n}\n.list-card .card-item-img uni-image[data-v-cb743578] {\r\n  width: 100%;\r\n  height: 100%;\r\n  overflow: hidden;\n}\n.list-card .card-item-content[data-v-cb743578] {\r\n  flex: 1;\r\n  flex-shrink: 0;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  padding-left: 20rpx;\n}\n.list-card .card-item-content .card-item-content-title[data-v-cb743578] {\r\n  font-size: 32rpx;\r\n  line-height: 1.2;\r\n  align-items: flex-start;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  display: -webkit-box;\r\n  -webkit-line-clamp: 2;\r\n  -webkit-box-orient: vertical;\n}\n.list-card .card-item-content .card-item-content-tag[data-v-cb743578] {\r\n  align-items: flex-end;\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n  font-size: 26rpx;\n}\n.list-card .card-item-content .card-item-content-tag .card-item-content-tag-text[data-v-cb743578] {\r\n  display: flex;\r\n  flex-direction: row;\n}\n.list-card .card-item-content .card-item-content-tag .card-item-content-tag-text .card-item-content-tag-text-item[data-v-cb743578] {\r\n  padding: 0 10rpx;\r\n  margin-right: 10rpx;\r\n  color: #aa55ff;\r\n  border: 1px #aa55ff solid;\r\n  border-radius: 30rpx;\n}\n.list-card .card-item-content .card-item-content-tag .card-item-content-tag-readcount[data-v-cb743578] {\r\n  color: #999;\r\n  line-height: 1.5;\n}\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.list-card[data-v-cb743578] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  padding: 10rpx;\r\n  margin: 10rpx;\r\n  border-radius: 5rpx;\r\n  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);\r\n  box-sizing: border-box;\n}\n.list-card .card-item-img[data-v-cb743578] {\r\n  width: 160rpx;\r\n  height: 160rpx;\r\n  border-radius: 10rpx;\r\n  background-color: aqua;\n}\n.list-card .card-item-img uni-image[data-v-cb743578] {\r\n  width: 100%;\r\n  height: 100%;\r\n  overflow: hidden;\n}\n.list-card .card-item-content[data-v-cb743578] {\r\n  flex: 1;\r\n  flex-shrink: 0;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\n}\n.list-card .card-item-content .card-item-content-title[data-v-cb743578] {\r\n  font-size: 32rpx;\r\n  line-height: 1.2;\r\n  margin-bottom: 10rpx;\r\n  align-items: flex-start;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  display: -webkit-box;\r\n  -webkit-line-clamp: 2;\r\n  -webkit-box-orient: vertical;\n}\n.list-card .card-item-content .card-item-content-tag[data-v-cb743578] {\r\n  align-items: flex-end;\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n  font-size: 26rpx;\n}\n.list-card .card-item-content .card-item-content-tag .card-item-content-tag-text[data-v-cb743578] {\r\n  display: flex;\r\n  flex-direction: row;\n}\n.list-card .card-item-content .card-item-content-tag .card-item-content-tag-text .card-item-content-tag-text-item[data-v-cb743578] {\r\n  padding: 0 10rpx;\r\n  margin-right: 10rpx;\r\n  color: #aa55ff;\r\n  border: 1px #aa55ff solid;\r\n  border-radius: 30rpx;\n}\n.list-card .card-item-content .card-item-content-tag .card-item-content-tag-readcount[data-v-cb743578] {\r\n  color: #999;\r\n  line-height: 1.5;\n}\n.list-card.mode-column .listcard-image[data-v-cb743578] {\r\n  width: 100%;\r\n  padding-left: 0%;\n}\n.list-card.mode-column .listcard-image[data-v-cb743578] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  height: 180rpx;\n}\n.list-card.mode-column .listcard-image .card-item-img[data-v-cb743578] {\r\n  flex: 1;\r\n  margin-left: 20rpx;\r\n  border-radius: 10rpx;\r\n  overflow: hidden;\n}\n.list-card.mode-column .listcard-image .card-item-img[data-v-cb743578]:first-child {\r\n  margin-left: 0;\n}\n.list-card.mode-column .listcard-image .card-item-img uni-image[data-v-cb743578] {\r\n  width: 100%;\r\n  height: 100%;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 

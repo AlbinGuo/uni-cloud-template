@@ -8,8 +8,10 @@
 			<tab :list="tabList" @tab="tab"></tab>
 		</view>		
 		<list-scroll>
-			<view v-for="item in 10">
-				<list-card></list-card>
+			<view>
+				<list-card mode="base"></list-card>
+				<list-card mode="image"></list-card>
+				<list-card mode="column"></list-card>
 			</view>		
 		</list-scroll>
 		
