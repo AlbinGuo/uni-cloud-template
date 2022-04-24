@@ -4,7 +4,7 @@
 		<!-- 搜索框 -->
 		<!-- 导航栏 -->
 		<nav-bar></nav-bar>
-		<tab></tab>
+		<tab :list="tabList"></tab>
 		<!-- <view v-for="item in 100">
 			hello - {{item}}
 		</view> -->
@@ -22,17 +22,27 @@
 		},
 		data() {
 			return {
-				
+				tabList: []
 			}
 		},
 		onLoad() {
-			
+			this.getLabel()
 		},
 		// tabbar点击触发
 		onTabItemTap(option) {
 			console.log(option)
 		},
 		methods: {
+			getLabel() {
+				const _this = this
+				uniCloud.callFunction({
+					name: 'get_label'
+				}).then((res) => {
+					const {result} = res
+					console.log('result==',result.data)
+					_this.tabList = result.data
+				})
+			}
 		}
 	}
 </script>

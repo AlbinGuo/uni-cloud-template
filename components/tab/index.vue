@@ -18,6 +18,14 @@
 <script>
 	export default {
 		name:"tab",
+		props: {
+			list: {
+				type: Array,
+				default(){
+					return []
+				}
+			}
+		},
 		data() {
 			return {
 				list: [
