@@ -98,14 +98,15 @@
 .list-card {
 	display: flex;
 	flex-direction: row;
-	padding: 10rpx;
-	margin: 10rpx;
-	border-radius: 5rpx;
-	box-shadow: 0 0 5px 1px rgba($color: #000000, $alpha: 0.1);
+	padding: 30rpx 2rpx;
+	margin: 0 28rpx;
+	border-radius: 4rpx;
 	box-sizing: border-box;
+	border-bottom: 1px solid #eceaea8a;
 	.card-item-img {
 		width: 160rpx;
 		height: 160rpx;
+		box-shadow: 0 0px 11px #231f1f40;
 		border-radius: 10rpx;
 		background-color: aqua;
 		image {
@@ -161,12 +162,10 @@
 		.listcard-image {
 			width: 100%;
 			padding-left: 0%;
-		}
-		.listcard-image {
 			display: flex;
 			flex-direction: row;
 			width: 100%;
-			height: 180rpx;
+			margin: 20rpx 0;
 			.card-item-img {
 				flex: 1;
 				margin-left: 20rpx;

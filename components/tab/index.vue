@@ -58,7 +58,7 @@
 <style lang="scss">
 	.tab{
 		width: 750rpx;
-		border-bottom: 1px $mk-base-color solid;
+		border-bottom: 1px #aa55ff17 solid;
 		box-sizing: border-box;
 		display: flex;
 		.tab-scroll {
