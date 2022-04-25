@@ -43,7 +43,6 @@
 		},
 		methods: {
 			change(current) {
-				console.log("change:", current)
 				this.tabIndex = current
 			},
 			tab({data, index}) {
@@ -65,6 +64,7 @@
 						name: 'get_label'
 					})
 					this.tabList = res.data
+					console.error('this.tabList',this.tabList)
 				}catch(e){
 					console.error('getLabel',e)
 				}

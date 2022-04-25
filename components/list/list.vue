@@ -31,16 +31,18 @@
 			};
 		},
 		created() {
-			this.getList()
+			this.getList('前端开发')
 		},
 		methods: {
 			change(e) {
 				const {current} = e.detail
+				console.log('tabList', this.tabList[current].name)
+				this.getList(this.tabList[current].name)
 				this.$emit("change", current)
 			},
-		async getList(){
+		async getList(name){
 				try{
-					const list = await this.$api.getList()
+					const list = await this.$api.getList({name})
 					this.list = list.data
 				}catch(e){
 					console.error(e)
