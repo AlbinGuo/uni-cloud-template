@@ -61,9 +61,13 @@
 			async getLabel() {
 				try{
 					const res = await this.$api.getLabel({
-						name: 'get_label'
+						name: 'get_label' 
 					})
-					this.tabList = res.data
+					const {data} = res
+					data.unshift({
+						name: '全部'
+					})
+					this.tabList = data
 					console.error('this.tabList',this.tabList)
 				}catch(e){
 					console.error('getLabel',e)

@@ -43,8 +43,11 @@
 		methods: {
 			change(e) {
 				const {current} = e.detail
-				this.getList(current)
 				this.$emit("change", current)
+				// 当数据不存在或者数据为空的情况下采取请求数据
+				if(!this.cacheListData[current] || this.cacheListData[current].length === 0){
+					this.getList(current)
+				}
 			},
 		async getList(current){
 				try{

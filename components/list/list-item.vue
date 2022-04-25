@@ -3,7 +3,8 @@
 		<list-scroll class="list-scroll">
 			<view>
 				<list-card v-for="(item, index) in list" :key="index" :item="item"></list-card>
-			</view>		
+			</view>
+			<uni-load-more iconType="snow" status="noMore"></uni-load-more>
 		</list-scroll>
 	</view>
 </template>

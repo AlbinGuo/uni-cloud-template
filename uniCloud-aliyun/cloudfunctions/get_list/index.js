@@ -2,15 +2,21 @@
 // 获取数据库引用
 const db = uniCloud.database()
 exports.main = async (event, context) => {
-	const {name} = event
-	
+	const { name } = event
+	let classifyObj = {}
+	if(name !== '全部'){
+		classifyObj = {
+			classify: name
+		}
+	}
 	// 数据聚合
 	const list = await db.collection('article')
-		.aggregate() // 获取数据库的聚合实例
-		.match({	 // 根据条件过滤
-			classify: name
-		})
-		.project({		// 指定哪些字段不需要输出
+		// 获取数据库的聚合实例
+		.aggregate() 
+		// 根据条件过滤
+		.match(classifyObj)
+		// 指定哪些字段不需要输出
+		.project({		
 			content: 0
 		})
 		.end()
