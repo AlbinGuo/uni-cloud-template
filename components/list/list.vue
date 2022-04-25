@@ -1,7 +1,7 @@
 <template>
 	<swiper class="home-swiper" :current="activeIndex" @change="change">
 		<swiper-item class="swiper-item" v-for="(item, index) in tabList" :key="index">
-			<list-item :list="list"></list-item>
+			<list-item :list="cacheListData[index]"></list-item>
 		</swiper-item>
 	</swiper>
 </template>
@@ -27,23 +27,32 @@
 		},
 		data() {
 			return {
-				list: []
+				list: [],
+				cacheListData: {} // 缓存数据
 			};
 		},
 		created() {
-			this.getList('前端开发')
+			
+		},
+		watch:{
+			tabList(newVal, oldVal){
+				if(newVal.length === 0)return
+				this.getList(this.activeIndex)
+			}
 		},
 		methods: {
 			change(e) {
 				const {current} = e.detail
-				console.log('tabList', this.tabList[current].name)
-				this.getList(this.tabList[current].name)
+				this.getList(current)
 				this.$emit("change", current)
 			},
-		async getList(name){
+		async getList(current){
 				try{
+					console.log('this.tabList===',this.tabList)
+					const name = this.tabList[current].name;
 					const list = await this.$api.getList({name})
-					this.list = list.data
+					this.$set(this.cacheListData, current, list.data)
+					this.cacheListData[current] = list.data
 				}catch(e){
 					console.error(e)
 				}
