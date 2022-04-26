@@ -2,7 +2,11 @@
 // 获取数据库引用
 const db = uniCloud.database()
 exports.main = async (event, context) => {
-	const { name } = event
+	const { 
+		name,
+		page= 1,
+		pageSize= 10
+	} = event
 	let classifyObj = {}
 	if(name !== '全部'){
 		classifyObj = {
@@ -19,6 +23,8 @@ exports.main = async (event, context) => {
 		.project({		
 			content: 0
 		})
+		.skip(pageSize * (page -  1))
+		.limit(pageSize)
 		.end()
 	
 	// const list = await db.collection("article")

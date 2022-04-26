@@ -51,9 +51,13 @@
 			},
 		async getList(current){
 				try{
-					console.log('this.tabList===',this.tabList)
 					const name = this.tabList[current].name;
-					const list = await this.$api.getList({name})
+					const list = await this.$api.getList({
+						name: name,
+						page: 1,
+						pageSize: 10
+					})
+					console.log('list===', list)
 					this.$set(this.cacheListData, current, list.data)
 					this.cacheListData[current] = list.data
 				}catch(e){
