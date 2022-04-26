@@ -1,7 +1,7 @@
 <template>
 	<swiper class="home-swiper" :current="activeIndex" @change="change">
 		<swiper-item class="swiper-item" v-for="(item, index) in tabList" :key="index">
-			<list-item :list="cacheListData[index]"></list-item>
+			<list-item :list="cacheListData[index]" @loadMore="loadMore"></list-item>
 		</swiper-item>
 	</swiper>
 </template>
@@ -28,7 +28,9 @@
 		data() {
 			return {
 				list: [],
-				cacheListData: {} // 缓存数据
+				cacheListData: {}, // 缓存数据
+				page: 1,
+				pageSize: 10
 			};
 		},
 		created() {
@@ -41,6 +43,16 @@
 			}
 		},
 		methods: {
+			 loadMore() {
+				try{
+					this.page++
+					console.log('===this.activeIndex', this.activeIndex)
+					const list = this.getList(this.activeIndex)
+					console.log('===list.data', list)
+				}catch(e){
+					console.log("e==",e)
+				}
+			},
 			change(e) {
 				const {current} = e.detail
 				this.$emit("change", current)
@@ -51,17 +63,19 @@
 			},
 		async getList(current){
 				try{
-					const name = this.tabList[current].name;
+					const name = this.tabList[current].name; 
 					const list = await this.$api.getList({
 						name: name,
-						page: 1,
-						pageSize: 10
+						page: this.page,
+						pageSize: this.pageSize
 					})
-					console.log('list===', list)
-					this.$set(this.cacheListData, current, list.data)
-					this.cacheListData[current] = list.data
-				}catch(e){
-					console.error(e)
+					// 分页push数据
+					let oldList = this.cacheListData[current] || []
+					oldList.push(...list.data)
+					this.$set(this.cacheListData, current, oldList)
+					// this.cacheListData[current] = list.data 
+				}catch(e){ 
+					console.error(e) 
 				}
 			}
 		}

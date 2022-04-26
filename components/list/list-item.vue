@@ -1,8 +1,11 @@
 <template>
 	<view class="home">
-		<list-scroll class="list-scroll">
+		<list-scroll class="list-scroll" v-on="$listeners">
 			<view>
-				<list-card v-for="(item, index) in list" :key="index" :item="item"></list-card>
+				<list-card v-for="(item, index) in list"
+					:key="index" 
+					:item="item">
+				</list-card>
 			</view>
 			<uni-load-more iconType="snow" status="noMore"></uni-load-more>
 		</list-scroll>
@@ -23,6 +26,8 @@
 		data(){
 			return {
 			}
+		},
+		methods: {
 		}
 	}
 </script>

@@ -388,7 +388,16 @@ var render = function() {
           staticClass: _vm._$g("1-" + $30, "sc"),
           attrs: { _i: "1-" + $30 }
         },
-        [_c("list-item", { attrs: { _i: "2-" + $30 } })],
+        [
+          _c("list-item", {
+            attrs: { _i: "2-" + $30 },
+            on: {
+              loadMore: function($event) {
+                return _vm.$handleViewEvent($event)
+              }
+            }
+          })
+        ],
         1
       )
     }),
@@ -547,7 +556,10 @@ var render = function() {
     [
       _c(
         "list-scroll",
-        { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
+        _vm._g(
+          { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
+          _vm._$g(1, "v-on")
+        ),
         [
           _c(
             "v-uni-view",
@@ -657,7 +669,15 @@ var render = function() {
     [
       _c(
         "v-uni-scroll-view",
-        { staticClass: _vm._$g(1, "sc"), attrs: { "scroll-y": true, _i: 1 } },
+        {
+          staticClass: _vm._$g(1, "sc"),
+          attrs: { "scroll-y": true, _i: 1 },
+          on: {
+            scrolltolower: function($event) {
+              return _vm.$handleViewEvent($event)
+            }
+          }
+        },
         [
           _c(
             "v-uni-view",
