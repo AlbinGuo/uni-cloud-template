@@ -7,7 +7,7 @@
 					:item="item">
 				</list-card>
 			</view>
-			<uni-load-more iconType="snow" :status="load.loading"></uni-load-more>
+			<uni-load-more iconType="snow" v-if="list.length > 5" :status="load.loading"></uni-load-more>
 		</list-scroll>
 	</view>
 </template>

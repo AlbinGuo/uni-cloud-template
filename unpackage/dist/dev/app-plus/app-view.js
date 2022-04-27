@@ -569,7 +569,7 @@ var render = function() {
             }),
             1
           ),
-          _c("uni-load-more", { attrs: { _i: 4 } })
+          _vm._$g(4, "i") ? _c("uni-load-more", { attrs: { _i: 4 } }) : _vm._e()
         ],
         1
       )

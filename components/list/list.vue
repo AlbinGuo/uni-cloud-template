@@ -47,10 +47,11 @@
 		methods: {
 			 loadMore() {
 				try{
+					if(this.load[this.activeIndex].loading == 'noMore'){
+						return
+					}
 					this.load[this.activeIndex].page++
-					console.log('===this.activeIndex', this.activeIndex)
 					const list = this.getList(this.activeIndex)
-					console.log('===list.data', list)
 				}catch(e){
 					console.log("e==",e)
 				}
@@ -79,14 +80,16 @@
 						pageSize: this.pageSize
 					})
 					
-					if(list.data.length === 0) {
+					const {data} = list
+					if(data.length === 0) {
 						let oldLoad = {}
 						oldLoad.loading = 'noMore'
+						oldLoad.page = this.load[current].page
 						this.$set(this.load, current, oldLoad)
 						this.$forceUpdate()
 						return
 					}
-					console.log('this.load===', this.load)
+					
 					// 分页push数据
 					let oldList = this.cacheListData[current] || []
 					oldList.push(...list.data)
