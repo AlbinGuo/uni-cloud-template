@@ -7,7 +7,7 @@
 					:item="item">
 				</list-card>
 			</view>
-			<uni-load-more iconType="snow" status="noMore"></uni-load-more>
+			<uni-load-more iconType="snow" :status="load.loading"></uni-load-more>
 		</list-scroll>
 	</view>
 </template>
@@ -20,6 +20,14 @@
 				type: Array,
 				default: () => {
 					return []
+				}
+			},
+			load: {
+				type: Object,
+				default() {
+					return {
+						loading: 'loading'
+					}
 				}
 			}
 		},
