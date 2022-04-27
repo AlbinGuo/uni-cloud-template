@@ -6,7 +6,8 @@
 			</view>
 			<view class="card-item-content" style="margin-left: 10rpx;">
 				<view class="card-item-content-title">
-					{{item.title}}
+					<text>{{item.title}}</text>
+					<like></like>
 				</view>
 				<view class="card-item-content-tag">
 					<view class="card-item-content-tag-text">
@@ -124,9 +125,11 @@
 		flex-direction: column;
 		justify-content: space-between;
 		.card-item-content-title {
+			position: relative;
 			font-size: 32rpx;
 			line-height: 1.2;
 			margin-bottom: 10rpx;
+			padding-right: 50rpx;
 			align-items: flex-start;
 			overflow: hidden;
 			text-overflow: ellipsis;
