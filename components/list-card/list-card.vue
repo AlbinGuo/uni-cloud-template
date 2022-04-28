@@ -1,15 +1,13 @@
 <template>
 	<view @click="open">
 		<!-- 视频 -->
+		<!-- #ifndef APP-PLUS -->
 		<view class="list-card" v-if="item.mode === 'video'">
 			<view class="list-card-video">
 				<video id="myVideo" 
 					:src="item.videoUrl"
-					@error="videoErrorCallback" 
-					:danmu-list="danmuList" 
-					enable-danmu 
-					danmu-btn 
-					controls></video>
+					@error="videoErrorCallback"
+					></video>
 				<view class="card-item-content" style="margin-left: 10rpx;">
 					<view class="card-item-content-title" style="margin: 16rpx 0;">
 						<text>{{item.title}}</text>
@@ -28,6 +26,7 @@
 				</view>
 			</view>
 		</view>
+		<!-- #endif -->
 		
 		<view class="list-card" v-if="item.mode === 'base'">
 			<view class="card-item-img">
@@ -126,6 +125,9 @@
 		methods: {
 			open() {
 				console.log('open')
+			},
+			videoErrorCallback(){
+				
 			}
 		}
 	}
