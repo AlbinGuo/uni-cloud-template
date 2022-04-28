@@ -66,7 +66,7 @@
 			},
 		async getList(current){
 				try{
-					// 当前分类分页状态
+					// 当前分类分页状态 
 					if(!this.load[current]) {
 						this.load[current] = {
 							page: 1,

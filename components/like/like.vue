@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="collect"></view>
+		<view class="collect" @click.stop="likeTap"></view>
 	</view>
 </template>
 
@@ -11,6 +11,11 @@
 			return {
 				
 			};
+		},
+		methods: {
+			likeTap() {
+				console.log('sssss')
+			}
 		}
 	}
 </script>
