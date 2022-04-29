@@ -11,7 +11,7 @@
 				<view class="card-item-content" style="margin-left: 10rpx;">
 					<view class="card-item-content-title" style="margin: 16rpx 0;">
 						<text>{{item.title}}</text>
-						<like></like>
+						<like :item="item"></like>
 					</view>
 					<view class="card-item-content-tag">
 						<view class="card-item-content-tag-text">
@@ -35,7 +35,7 @@
 			<view class="card-item-content" style="margin-left: 10rpx;">
 				<view class="card-item-content-title">
 					<text>{{item.title}}</text>
-					<like></like>
+					<like :item="item"></like>
 				</view>
 				<view class="card-item-content-tag">
 					<view class="card-item-content-tag-text">
@@ -55,7 +55,7 @@
 			<view class="card-item-content">
 				<view class="card-item-content-title">
 					<text>{{item.title}}</text>
-					<like></like>
+					<like :item="item"></like>
 				</view>
 				<view class="listcard-image">
 					<view class="card-item-img" v-if="index < 3" v-for="(cover,index) in item.cover" :key="index">
@@ -85,7 +85,7 @@
 				</view>
 				<view class="card-item-content-title">
 					<text>{{item.title}}</text>
-					<like></like>
+					<like :item="item"></like>
 				</view>
 				<view class="card-item-content-tag">
 					<view class="card-item-content-tag-text">
@@ -118,7 +118,7 @@
 			}
 		},
 		data() {
-			return {
+			return { 
 				
 			};
 		},

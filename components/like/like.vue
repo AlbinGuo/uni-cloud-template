@@ -1,34 +1,54 @@
 <template>
-	<view>
-		<view class="collect" @click.stop="likeTap"></view>
+	<view> 
+		<icons :type="like?'appreciateFillLight':'appreciate'" size="44upx" color="#aa55ff" @click="likeTap"></icons>
 	</view>
-</template>
+</template> 
 
 <script>
 	export default {
-		name:"like",
-		data() {
+		name:"like", 
+		props:{
+			item: {
+				type: Object,
+				default(){
+					return {}
+				}
+			}
+		},
+		data() { 
 			return {
-				
+				like: false
 			};
 		},
 		methods: {
 			likeTap() {
-				console.log('sssss')
+				this.like = !this.like
+				this.updateLikes()
+			},
+			async updateLikes() {
+				try{
+					const res = await this.$api.update_likes({
+						user_id: '626401aa1b2993000182a734',
+						article_id: this.item._id
+					})
+					console.log(res)
+				}catch(e){
+					console.error(e)
+				}
 			}
 		}
 	}
 </script>
 
 <style lang="scss">
-	.collect {
+	.icons {
 		position: absolute;
-		top: 0;
 		right: 0;
-		width: 40rpx;
-		height: 40rpx;
-		background-image: url("@/static/icon_uncollect.png");
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
+		top: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 20px;
+		height: 20px;
 	}
 </style>

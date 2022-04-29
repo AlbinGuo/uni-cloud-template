@@ -52,7 +52,7 @@
 			async getList() {
 				try{
 					const res = await this.$api.getList({
-						name: 'login'
+						name: 'login' 
 					})
 					this.tabList = res.data
 				}catch(e){

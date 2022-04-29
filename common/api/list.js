@@ -14,3 +14,10 @@ export const getList = (data) => {
 	})
 }
 
+export const update_likes = (data) => {
+	return $http({
+		url: 'update_like',
+		data
+	})
+}
+

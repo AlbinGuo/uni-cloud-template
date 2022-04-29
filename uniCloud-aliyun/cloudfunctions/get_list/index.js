@@ -35,7 +35,7 @@ exports.main = async (event, context) => {
 	//返回数据给客户端
 	return {
 		code: 200,
-		msg: '数据请求成功01',
+		msg: '数据请求成功',
 		data: list.data
 	}
 };
