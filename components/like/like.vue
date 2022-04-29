@@ -15,9 +15,17 @@
 				}
 			}
 		},
+		created() {
+			this.like = this.item.is_like	
+		},
+		watch: {
+			item(newVal){
+				this.like = this.item.is_like
+			}
+		},
 		data() { 
 			return {
-				like: false
+				like: false 
 			};
 		},
 		methods: {
@@ -31,7 +39,13 @@
 						user_id: '626401aa1b2993000182a734',
 						article_id: this.item._id
 					})
-					console.log(res)
+					if(res.code == 200){
+						uni.hideLoading()
+						uni.showToast({
+							title: this.like ? '收藏成功' : '取消收藏',
+							icon: 'none'
+						})
+					}
 				}catch(e){
 					console.error(e)
 				}

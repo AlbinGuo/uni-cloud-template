@@ -79,7 +79,7 @@
 						page: this.load[current].page,
 						pageSize: this.pageSize
 					})
-					
+					console.log('===list===',list)
 					const {data} = list
 					if(data.length === 0) {
 						let oldLoad = {}

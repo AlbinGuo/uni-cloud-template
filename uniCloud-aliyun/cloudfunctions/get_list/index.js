@@ -1,8 +1,10 @@
 'use strict';
 // 获取数据库引用
 const db = uniCloud.database()
+const $ = db.command.aggregate
 exports.main = async (event, context) => {
-	const { 
+	const {
+		user_id,
 		name,
 		page= 1,
 		pageSize= 10
@@ -13,10 +15,16 @@ exports.main = async (event, context) => {
 			classify: name
 		}
 	}
+	
+	const userInfo = await db.collection('user').doc(user_id).get()
+	const article_likes_ids = userInfo.data[0].article_likes_ids
 	// 数据聚合
 	const list = await db.collection('article')
 		// 获取数据库的聚合实例
 		.aggregate() 
+		.addFields({
+			is_like: $.in(['$_id', article_likes_ids])
+		})
 		// 根据条件过滤
 		.match(classifyObj)
 		// 指定哪些字段不需要输出
