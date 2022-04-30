@@ -69,7 +69,6 @@
 						name: '全部'
 					})
 					this.tabList = data
-					console.error('this.tabList',this.tabList)
 				}catch(e){
 					console.error('getLabel',e)
 				}
