@@ -35,6 +35,14 @@
             }
             
         }
+        ,{
+            "path" : "pages/home-page/home-page",
+            "style" :                                                                                    
+            {
+                "navigationStyle": "custom"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

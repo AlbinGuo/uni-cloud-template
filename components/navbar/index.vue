@@ -2,7 +2,7 @@
 	<view class="navbar">
 		<view class="navbar-fixed">
 			<view class="status_bar" :style="{height: statusBarHeight+'rpx'}"></view>
-			<view class="navbar-fixed-search" @click="">
+			<view class="navbar-fixed-search" @click="goSearchPage">
 				<view class="navbar-fixed-search_icon"></view>
 				<view class="navbar-fixed-search_text">
 					搜你想搜的内容
@@ -36,6 +36,13 @@
 			console.log(menuButtonInfo)
 			// #endif
 			
+		},
+		methods: {
+			goSearchPage() {
+				uni.navigateTo({
+					url: '/pages/home-page/home-page'
+				})
+			}
 		}
 	}
 </script>

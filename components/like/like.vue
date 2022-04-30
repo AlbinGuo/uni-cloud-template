@@ -1,6 +1,6 @@
 <template>
-	<view> 
-		<icons :type="like?'appreciateFillLight':'appreciate'" size="44upx" color="#aa55ff" @click="likeTap"></icons>
+	<view class="icons"> 
+		<uni-icons :type="like ? 'heart-filled' : 'heart'" size="38upx" color="#aa55ff" @click="likeTap"></uni-icons>		
 	</view>
 </template> 
 
@@ -56,13 +56,10 @@
 
 <style lang="scss">
 	.icons {
+		display: inline;
 		position: absolute;
-		right: 0;
 		top: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 20px;
-		height: 20px;
+		right: 0;
+		bottom: -2px;
 	}
 </style>

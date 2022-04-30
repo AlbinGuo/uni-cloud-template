@@ -5,8 +5,8 @@ import api from'@/common/api/index.js'
 import Vue from 'vue'
 Vue.config.productionTip = false
 
-import Icons from '@/components/lz-icons/icons.vue'
-Vue.component("Icons", Icons);
+import UniIcons from '@/components/uni-icons/uni-icons.vue'
+Vue.component("UniIcons", UniIcons);
 
 // Vue原型挂载
 Vue.prototype.$api = api
