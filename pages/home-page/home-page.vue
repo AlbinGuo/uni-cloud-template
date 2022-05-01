@@ -2,7 +2,10 @@
 	<view class="search-wrap">
 		<view class="status_bar">  
 		</view>
-		<nav-bar :isSearch="true"></nav-bar>
+		<nav-bar :isSearch="true" @search="goSearch"></nav-bar>
+		<view class="home-list">
+			<list :tab-list="tabList" @change="change" :activeIndex="activeIndex"></list>
+		</view>
 		<view class="search-wrap-record">
 			<view class="search-wrap-record-head">
 				<text class="history">搜索历史</text>
@@ -11,8 +14,7 @@
 			<view class="search-wrap-record-tags" v-if="historyList.length > 0">
 				<view class="tag" v-for="(item,index) in historyList">
 					<view class="wrap">
-						<text class="index">{{index}}</text>
-						<text class="cnt">内瓤</text>
+						<text class="cnt">{{item}}</text>
 					</view>
 				</view>
 			</view>
@@ -33,7 +35,7 @@
 			return {
 				// 手机状态栏高度
 				statusBarHeight: 0,
-				historyList: [1]
+				historyList: []
 			}
 		},
 		created() {
@@ -46,12 +48,17 @@
 			// #endif
 		},
 		methods: {
+			goSearch(val) {
+				console.log(val)
+				this.historyList.unshift(val)
+			},
 			back() {
 				uni.navigateBack({
 					delta: 1
 				})
 			},
 			clearAll() {
+				this.historyList = []
 			}
 		}
 	}
