@@ -66,6 +66,11 @@
 				uni.navigateTo({
 					url: '/pages/home-page/home-page'
 				})
+			},
+			back() {
+				uni.navigateBack({
+					delta: 1
+				})
 			}
 		}
 	}
@@ -102,6 +107,7 @@
 			flex-direction: column;
 			align-items: center;
 			.search{
+				width: 100%;
 				display: flex;
 				justify-content: space-between;
 				border-radius: 4rpx;
@@ -127,7 +133,7 @@
 				
 			}
 			.status_bar {
-			      width: 750rpx;
+			      width: 100%;
 			      background-color: $mk-base-color;
 			  }
 			&-search {
@@ -135,7 +141,7 @@
 				flex-flow: row nowrap;
 				justify-content: center;
 				background-color: white;
-				width: 100%;
+				width: 90%;
 				margin: 16rpx auto;
 				border-radius: 30rpx;
 				align-items: center;
