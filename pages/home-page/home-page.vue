@@ -9,7 +9,7 @@
 				<text class="clear" @click="clearAll">清空</text>
 			</view>
 			<view class="search-wrap-record-tags" v-if="historyList.length > 0">
-				<view class="tag" v-for="(item,index) in historyList"
+				<view class="tag" v-for="(item,index) in historyList" :key="index"
 				 @click="clickRecordSearch(item)">
 					<view class="wrap">
 						<text class="cnt">{{item.name}}</text>
@@ -60,12 +60,10 @@
 		methods: {
 			clickRecordSearch(item) {
 				const {name} = item
-				console.log('name------',name)
 				this.value = name
 				this.getSearch(name)
 			},
 			setHistory(){
-				console.log('------',this.value)
 				this.$store.dispatch('set_history', {
 					name: this.value
 				})
@@ -88,14 +86,19 @@
 				// }
 			},
 			back() {
-				uni.navigateBack({
-					delta: 1
+				uni.switchTab({
+					url: "/pages/index/index"
 				})
+				// uni.navigateBack({
+				// 	delta: 1
+				// })
 			},
 			clearAll() {
-				// this.$store.dispatch('set_history', {
-				// 	name: 'test'
-				// })
+				this.$store.dispatch('clear_history')
+				uni.showToast({
+					title: '清空完成',
+					icon: 'none' 
+				})
 			},
 			tst(){ 
 				this.$store.dispatch('set_history', {
