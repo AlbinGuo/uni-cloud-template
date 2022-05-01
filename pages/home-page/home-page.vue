@@ -1,36 +1,49 @@
 <template>
 	<view class="search-wrap">
-		<view class="search-wrap-input">
-			<view class="arrow" @click="back">
-				<uni-icons type="back" size="30" color="#fff"></uni-icons>
-			</view>
-			<view class="input">
-				<input type="text" placeholder="请输入要搜索的内容">
-			</view>
+		<view class="status_bar">  
 		</view>
+		<nav-bar :isSearch="true"></nav-bar>
 		<view class="search-wrap-record">
 			<view class="search-wrap-record-head">
 				<text class="history">搜索历史</text>
 				<text class="clear" @click="clearAll">清空</text>
 			</view>
-			<view class="search-wrap-record-tags">
-				<view class="tag" v-for="(item,index) in 15">
+			<view class="search-wrap-record-tags" v-if="historyList.length > 0">
+				<view class="tag" v-for="(item,index) in historyList">
 					<view class="wrap">
 						<text class="index">{{index}}</text>
 						<text class="cnt">内瓤</text>
 					</view>
 				</view>
 			</view>
+			<view class="nodata" v-else>
+				暂无搜索历史
+			</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import NavBar from '@/components/navbar/index.vue'
 	export default {
+		components: {
+			NavBar
+		},
 		data() {
 			return {
-				
+				// 手机状态栏高度
+				statusBarHeight: 0,
+				historyList: [1]
 			}
+		},
+		created() {
+			// 获取手机系统信息
+			const info = uni.getSystemInfoSync()
+			this.statusBarHeight = info.statusBarHeight * 4; // 2px = 1rpx
+			// 获取微信胶囊信息 h5 app mp-alipay不支持
+			// #ifndef H5 || APP-PLUS || MP-ALIPAY
+			const menuButtonInfo = uni.getMenuButtonBoundingClientRect()
+			// #endif
 		},
 		methods: {
 			back() {
@@ -39,30 +52,18 @@
 				})
 			},
 			clearAll() {
-				console.log('clearAll====')
 			}
 		}
 	}
 </script>
 
 <style lang="scss">
+	.status_bar {  
+	    height: var(--status-bar-height);  
+	    width: 100%;  
+	    background: $mk-base-color;  
+	} 
 	.search-wrap {
-		&-input {
-			display: flex;
-			justify-content: space-between;
-			padding: 10rpx 20rpx;
-			background-color: $mk-base-color;
-			.arrow{
-				margin: auto 0;
-			}
-			.input{
-				flex: 1;
-				margin: auto 10rpx;
-				padding: 10rpx 20rpx;
-				border-radius: 8rpx;
-				background-color: $uni-bg-color;
-			}
-		}
 		&-record {
 			display: flex;
 			flex-direction: column;
@@ -102,5 +103,12 @@
 				}
 			}
 		}
+	}
+	.nodata {
+		color: #999;
+		text-align: center;
+		padding:20rpx 0;
+		margin-top: 80rpx;
+		font-size: 28rpx;
 	}
 </style>
