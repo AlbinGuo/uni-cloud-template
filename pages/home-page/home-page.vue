@@ -2,14 +2,15 @@
 	<view class="search-wrap">
 		<view class="status_bar">  
 		</view>
-		<nav-bar :isSearch="true" @search="goSearch"></nav-bar>
+		<nav-bar v-model="value" :isSearch="true" @change="change"></nav-bar>
 		<view class="search-wrap-record" v-if="isHistory">
 			<view class="search-wrap-record-head">
 				<text class="history">搜索历史</text>
 				<text class="clear" @click="clearAll">清空</text>
 			</view>
 			<view class="search-wrap-record-tags" v-if="historyList.length > 0">
-				<view class="tag" v-for="(item,index) in historyList">
+				<view class="tag" v-for="(item,index) in historyList"
+				 @click="clickRecordSearch(item)">
 					<view class="wrap">
 						<text class="cnt">{{item.name}}</text>
 					</view>
@@ -20,7 +21,16 @@
 			</view>
 		</view>
 		<list-scroll class="list-scroll" v-else>
-			<list-card :item="item" v-for="item in searchList" :key="item._id"></list-card>
+			<uni-load-more v-if="loading" status="loading" iconType="snow"></uni-load-more>
+			<view v-if="searchList.length > 0">
+				<list-card v-for="item in searchList"
+					:item="item" 
+					:key="item._id"
+					@click="setHistory"></list-card>
+			</view>
+			<view v-if="searchList.length === 0 && !loading" class="nodata">
+				没有搜索到相关数据
+			</view>
 		</list-scroll>
 	</view>
 </template>
@@ -37,7 +47,9 @@
 				// 手机状态栏高度
 				searchList: [],
 				statusBarHeight: 0,
-				isHistory: true
+				isHistory: true,
+				value: '',
+				loading: false
 			}
 		},
 		onLoad() {
@@ -46,20 +58,34 @@
 			...mapState(['historyList'])
 		},
 		methods: {
-			goSearch(val) {
+			clickRecordSearch(item) {
+				const {name} = item
+				console.log('name------',name)
+				this.value = name
+				this.getSearch(name)
+			},
+			setHistory(){
+				console.log('------',this.value)
+				this.$store.dispatch('set_history', {
+					name: this.value
+				})
+			},
+			change(val) {
+				this.value = val
 				if(!val){
 					clearTimeout(this.timer)
 					this.marker = false
 					this.getSearch(val)
 					return
 				}
-				if(!this.marker){
-					this.marker = true
-					this.timer = setTimeout(() => {
-						this.marker = false
-						this.getSearch(val)
-					},1000)
-				}
+				this.getSearch(val)
+				// if(!this.marker){
+				// 	this.marker = true
+				// 	this.timer = setTimeout(() => {
+				// 		this.marker = false
+				// 		this.getSearch(val)
+				// 	},1000)
+				// }
 			},
 			back() {
 				uni.navigateBack({
@@ -78,19 +104,23 @@
 			},
 			async getSearch(val){
 				try{
+					console.log('val---',val)
 					if(!val){
 						this.searchList = []
 						this.isHistory = true
 						return
 					}
 					this.isHistory = false
+					this.loading = true
 					const list = await this.$api.get_search({
 						value: val
 					})
+					this.loading = false
 					const {data} = list
 					this.searchList = data
 				}catch(e){ 
 					console.error(e) 
+					this.loading = false
 				}
 			}
 		}

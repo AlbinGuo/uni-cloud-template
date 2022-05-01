@@ -2869,7 +2869,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 
 {
-  props: ["isSearch"],
+  props: ["value", "isSearch"],
   data: function data() {
     return {
       wxsProps: {} };
@@ -3544,6 +3544,8 @@ var components
 try {
   components = {
     listScroll: __webpack_require__(/*! @/components/list-scroll/list-scroll.vue */ 13).default,
+    uniLoadMore: __webpack_require__(/*! @/uni_modules/uni-load-more/components/uni-load-more/uni-load-more.vue */ 51)
+      .default,
     listCard: __webpack_require__(/*! @/components/list-card/list-card.vue */ 25).default
   }
 } catch (e) {
@@ -3575,9 +3577,14 @@ var render = function() {
       _c("nav-bar", {
         attrs: { _i: 2 },
         on: {
-          search: function($event) {
+          change: function($event) {
             return _vm.$handleViewEvent($event)
           }
+        },
+        model: {
+          value: _vm._$g(2, "v-model"),
+          callback: function() {},
+          expression: "value"
         }
       }),
       _vm._$g(3, "i")
@@ -3620,7 +3627,12 @@ var render = function() {
                         {
                           key: item,
                           staticClass: _vm._$g("8-" + $30, "sc"),
-                          attrs: { _i: "8-" + $30 }
+                          attrs: { _i: "8-" + $30 },
+                          on: {
+                            click: function($event) {
+                              return _vm.$handleViewEvent($event)
+                            }
+                          }
                         },
                         [
                           _c(
@@ -3658,9 +3670,36 @@ var render = function() {
         : _c(
             "list-scroll",
             { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
-            _vm._l(_vm._$g(13, "f"), function(item, $11, $21, $31) {
-              return _c("list-card", { key: item, attrs: { _i: "13-" + $31 } })
-            }),
+            [
+              _vm._$g(13, "i")
+                ? _c("uni-load-more", { attrs: { _i: 13 } })
+                : _vm._e(),
+              _vm._$g(14, "i")
+                ? _c(
+                    "v-uni-view",
+                    { attrs: { _i: 14 } },
+                    _vm._l(_vm._$g(15, "f"), function(item, $11, $21, $31) {
+                      return _c("list-card", {
+                        key: item,
+                        attrs: { _i: "15-" + $31 },
+                        on: {
+                          click: function($event) {
+                            return _vm.$handleViewEvent($event)
+                          }
+                        }
+                      })
+                    }),
+                    1
+                  )
+                : _vm._e(),
+              _vm._$g(16, "i")
+                ? _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+                    [_vm._v("没有搜索到相关数据")]
+                  )
+                : _vm._e()
+            ],
             1
           )
     ],

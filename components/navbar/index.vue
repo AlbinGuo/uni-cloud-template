@@ -19,17 +19,8 @@
 						v-model="searchContent" 
 						@input="inputChange">
 				</view>
-				<!-- <text class="text" @click="goSearch(searchContent)">搜索</text> -->
 			</view>
 		</view>
-		<!-- <view class="search-wrap-input" v-else>
-			<view class="arrow" @click="back">
-				<uni-icons type="back" size="30" color="#fff"></uni-icons>
-			</view>
-			<view class="input">
-				<input type="text" placeholder="请输入要搜索的内容" style="padding: 10rpx 0;font-size: 28rpx;">
-			</view>
-		</view> -->
 		<!-- #ifndef H5 -->
 		<view :style="{height: (statusBarHeight * 2) + 30 + 'rpx'}"></view>
 		<!-- #endif -->
@@ -42,6 +33,10 @@
 <script>
 	export default {
 		props: {
+			value:{
+				type: [String, Number],
+				default: ''
+			},
 			isSearch: {
 				type: Boolean,
 				default: false
@@ -52,6 +47,12 @@
 				// 手机状态栏高度
 				statusBarHeight: 0,
 				searchContent: ''
+			}
+		},
+		watch:{
+			value(newVal){
+				console.log('new---', newVal)
+				this.searchContent = newVal
 			}
 		},
 		created() {
@@ -67,10 +68,7 @@
 		methods: {
 			inputChange(e) {
 				const {value} = e.detail
-				this.$emit('search', value)
-			},
-			goSearch() {
-				this.$emit('search', this.searchContent)
+				this.$emit('change', value)
 			},
 			open() {
 				// if(!this.isSearch) return
