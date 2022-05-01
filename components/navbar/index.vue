@@ -14,7 +14,7 @@
 				</view>
 				<view class="search-cnt">
 					<uni-icons class="ico" type="search" size="20" color="#333"></uni-icons>
-					<input type="text" placeholder="搜索"
+					<input type="text" placeholder="Java、NodeJs、VueJs"
 						:focus="true"
 						v-model="searchContent" 
 						@input="inputChange">

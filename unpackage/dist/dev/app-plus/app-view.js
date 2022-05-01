@@ -2807,7 +2807,7 @@ var render = function() {
                       _c("v-uni-input", {
                         attrs: {
                           type: "text",
-                          placeholder: "搜索",
+                          placeholder: "Java、NodeJs、VueJs",
                           focus: true,
                           _i: 11
                         },
