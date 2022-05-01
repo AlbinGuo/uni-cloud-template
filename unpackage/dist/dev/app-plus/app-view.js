@@ -3550,7 +3550,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
 try {
-  components = { list: __webpack_require__(/*! @/components/list/list.vue */ 5).default }
+  components = {
+    listScroll: __webpack_require__(/*! @/components/list-scroll/list-scroll.vue */ 13).default,
+    listCard: __webpack_require__(/*! @/components/list-card/list-card.vue */ 25).default
+  }
 } catch (e) {
   if (
     e.message.indexOf("Cannot find module") !== -1 &&
@@ -3585,95 +3588,89 @@ var render = function() {
           }
         }
       }),
-      _c(
-        "v-uni-view",
-        { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
-        [
-          _c("list", {
-            attrs: { _i: 4 },
-            on: {
-              change: function($event) {
-                return _vm.$handleViewEvent($event)
-              }
-            }
-          })
-        ],
-        1
-      ),
-      _c(
-        "v-uni-view",
-        { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
-        [
-          _c(
+      _vm._$g(3, "i")
+        ? _c(
             "v-uni-view",
-            { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
+            { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
             [
               _c(
-                "v-uni-text",
-                { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
-                [_vm._v("搜索历史")]
-              ),
-              _c(
-                "v-uni-text",
-                {
-                  staticClass: _vm._$g(8, "sc"),
-                  attrs: { _i: 8 },
-                  on: {
-                    click: function($event) {
-                      return _vm.$handleViewEvent($event)
-                    }
-                  }
-                },
-                [_vm._v("清空")]
-              )
-            ],
-            1
-          ),
-          _vm._$g(9, "i")
-            ? _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
-                _vm._l(_vm._$g(10, "f"), function(item, index, $20, $30) {
-                  return _c(
-                    "v-uni-view",
+                { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+                [
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+                    [_vm._v("搜索历史")]
+                  ),
+                  _c(
+                    "v-uni-text",
                     {
-                      key: item,
-                      staticClass: _vm._$g("10-" + $30, "sc"),
-                      attrs: { _i: "10-" + $30 }
+                      staticClass: _vm._$g(6, "sc"),
+                      attrs: { _i: 6 },
+                      on: {
+                        click: function($event) {
+                          return _vm.$handleViewEvent($event)
+                        }
+                      }
                     },
-                    [
-                      _c(
+                    [_vm._v("清空")]
+                  )
+                ],
+                1
+              ),
+              _vm._$g(7, "i")
+                ? _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+                    _vm._l(_vm._$g(8, "f"), function(item, index, $20, $30) {
+                      return _c(
                         "v-uni-view",
                         {
-                          staticClass: _vm._$g("11-" + $30, "sc"),
-                          attrs: { _i: "11-" + $30 }
+                          key: item,
+                          staticClass: _vm._$g("8-" + $30, "sc"),
+                          attrs: { _i: "8-" + $30 }
                         },
                         [
                           _c(
-                            "v-uni-text",
+                            "v-uni-view",
                             {
-                              staticClass: _vm._$g("12-" + $30, "sc"),
-                              attrs: { _i: "12-" + $30 }
+                              staticClass: _vm._$g("9-" + $30, "sc"),
+                              attrs: { _i: "9-" + $30 }
                             },
-                            [_vm._v(_vm._$g("12-" + $30, "t0-0"))]
+                            [
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g("10-" + $30, "sc"),
+                                  attrs: { _i: "10-" + $30 }
+                                },
+                                [_vm._v(_vm._$g("10-" + $30, "t0-0"))]
+                              )
+                            ],
+                            1
                           )
                         ],
                         1
                       )
-                    ],
+                    }),
                     1
                   )
-                }),
-                1
-              )
-            : _c(
-                "v-uni-view",
-                { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
-                [_vm._v("暂无搜索历史")]
-              )
-        ],
-        1
-      )
+                : _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
+                    [_vm._v("暂无搜索历史")]
+                  )
+            ],
+            1
+          )
+        : _c(
+            "list-scroll",
+            { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
+            _vm._l(_vm._$g(13, "f"), function(item, $11, $21, $31) {
+              return _c("list-card", { key: item, attrs: { _i: "13-" + $31 } })
+            }),
+            1
+          )
     ],
     1
   )

@@ -47,7 +47,8 @@
 		data(){
 			return {
 				// 手机状态栏高度
-				statusBarHeight: 0
+				statusBarHeight: 0,
+				searchContent: ''
 			}
 		},
 		created() {

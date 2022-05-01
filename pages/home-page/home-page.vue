@@ -3,10 +3,7 @@
 		<view class="status_bar">  
 		</view>
 		<nav-bar :isSearch="true" @search="goSearch"></nav-bar>
-		<view class="home-list">
-			<list :tab-list="tabList" @change="change" :activeIndex="activeIndex"></list>
-		</view>
-		<view class="search-wrap-record">
+		<view class="search-wrap-record" v-if="isHistory">
 			<view class="search-wrap-record-head">
 				<text class="history">搜索历史</text>
 				<text class="clear" @click="clearAll">清空</text>
@@ -14,7 +11,7 @@
 			<view class="search-wrap-record-tags" v-if="historyList.length > 0">
 				<view class="tag" v-for="(item,index) in historyList">
 					<view class="wrap">
-						<text class="cnt">{{item}}</text>
+						<text class="cnt">{{item.name}}</text>
 					</view>
 				</view>
 			</view>
@@ -22,10 +19,14 @@
 				暂无搜索历史
 			</view>
 		</view>
+		<list-scroll class="list-scroll" v-else>
+			<list-card :item="item" v-for="item in searchList" :key="item._id"></list-card>
+		</list-scroll>
 	</view>
 </template>
 
 <script>
+	import {mapState} from 'vuex'
 	import NavBar from '@/components/navbar/index.vue'
 	export default {
 		components: {
@@ -34,23 +35,21 @@
 		data() {
 			return {
 				// 手机状态栏高度
+				searchList: [],
 				statusBarHeight: 0,
-				historyList: []
+				isHistory: false
 			}
 		},
-		created() {
-			// 获取手机系统信息
-			const info = uni.getSystemInfoSync()
-			this.statusBarHeight = info.statusBarHeight * 4; // 2px = 1rpx
-			// 获取微信胶囊信息 h5 app mp-alipay不支持
-			// #ifndef H5 || APP-PLUS || MP-ALIPAY
-			const menuButtonInfo = uni.getMenuButtonBoundingClientRect()
-			// #endif
+		onLoad() {
+			this.getList()
+		},
+		computed:{
+			...mapState(['historyList'])
 		},
 		methods: {
 			goSearch(val) {
+				// this.historyList.unshift(val)
 				console.log(val)
-				this.historyList.unshift(val)
 			},
 			back() {
 				uni.navigateBack({
@@ -58,8 +57,28 @@
 				})
 			},
 			clearAll() {
-				this.historyList = []
-			}
+				// this.$store.dispatch('set_history', {
+				// 	name: 'test'
+				// })
+			},
+			tst(){ 
+				this.$store.dispatch('set_history', {
+					name: 'test'
+				})
+			},
+			async getList(){
+					try{
+						const list = await this.$api.getList({
+							name: '全部',
+							page: 1,
+							pageSize: 20
+						})
+						const {data} = list
+						this.searchList = data
+					}catch(e){ 
+						console.error(e) 
+					}
+				}
 		}
 	}
 </script>
