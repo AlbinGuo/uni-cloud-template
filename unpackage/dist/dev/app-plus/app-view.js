@@ -2805,7 +2805,12 @@ var render = function() {
                         attrs: { _i: 10 }
                       }),
                       _c("v-uni-input", {
-                        attrs: { type: "text", placeholder: "搜索", _i: 11 },
+                        attrs: {
+                          type: "text",
+                          placeholder: "搜索",
+                          focus: true,
+                          _i: 11
+                        },
                         on: {
                           input: function($event) {
                             return _vm.$handleViewEvent($event)
@@ -2819,19 +2824,6 @@ var render = function() {
                       })
                     ],
                     1
-                  ),
-                  _c(
-                    "v-uni-text",
-                    {
-                      staticClass: _vm._$g(12, "sc"),
-                      attrs: { _i: 12 },
-                      on: {
-                        click: function($event) {
-                          return _vm.$handleViewEvent($event)
-                        }
-                      }
-                    },
-                    [_vm._v("搜索")]
                   )
                 ],
                 1
@@ -2839,7 +2831,7 @@ var render = function() {
         ],
         1
       ),
-      _c("v-uni-view", { style: _vm._$g(13, "s"), attrs: { _i: 13 } })
+      _c("v-uni-view", { style: _vm._$g(12, "s"), attrs: { _i: 12 } })
     ],
     1
   )

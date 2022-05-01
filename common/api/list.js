@@ -21,3 +21,10 @@ export const update_likes = (data) => {
 	})
 }
 
+
+export const get_search = (data) => {
+	return $http({
+		url: 'get_search',
+		data
+	})
+}

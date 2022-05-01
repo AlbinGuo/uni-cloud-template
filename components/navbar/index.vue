@@ -14,9 +14,12 @@
 				</view>
 				<view class="search-cnt">
 					<uni-icons class="ico" type="search" size="20" color="#333"></uni-icons>
-					<input type="text" placeholder="搜索" v-model="searchContent" @input="inputChange">
+					<input type="text" placeholder="搜索"
+						:focus="true"
+						v-model="searchContent" 
+						@input="inputChange">
 				</view>
-				<text class="text" @click="goSearch(searchContent)">搜索</text>
+				<!-- <text class="text" @click="goSearch(searchContent)">搜索</text> -->
 			</view>
 		</view>
 		<!-- <view class="search-wrap-input" v-else>

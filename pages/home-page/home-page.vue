@@ -37,19 +37,29 @@
 				// 手机状态栏高度
 				searchList: [],
 				statusBarHeight: 0,
-				isHistory: false
+				isHistory: true
 			}
 		},
 		onLoad() {
-			this.getList()
 		},
 		computed:{
 			...mapState(['historyList'])
 		},
 		methods: {
 			goSearch(val) {
-				// this.historyList.unshift(val)
-				console.log(val)
+				if(!val){
+					clearTimeout(this.timer)
+					this.marker = false
+					this.getSearch(val)
+					return
+				}
+				if(!this.marker){
+					this.marker = true
+					this.timer = setTimeout(() => {
+						this.marker = false
+						this.getSearch(val)
+					},1000)
+				}
 			},
 			back() {
 				uni.navigateBack({
@@ -66,19 +76,23 @@
 					name: 'test'
 				})
 			},
-			async getList(){
-					try{
-						const list = await this.$api.getList({
-							name: '全部',
-							page: 1,
-							pageSize: 20
-						})
-						const {data} = list
-						this.searchList = data
-					}catch(e){ 
-						console.error(e) 
+			async getSearch(val){
+				try{
+					if(!val){
+						this.searchList = []
+						this.isHistory = true
+						return
 					}
+					this.isHistory = false
+					const list = await this.$api.get_search({
+						value: val
+					})
+					const {data} = list
+					this.searchList = data
+				}catch(e){ 
+					console.error(e) 
 				}
+			}
 		}
 	}
 </script>
