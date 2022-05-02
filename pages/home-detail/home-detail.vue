@@ -48,6 +48,10 @@
 		methods: {
 			follow() {
 				this.isFollow = !this.isFollow
+				uni.showToast({
+					title: this.isFollow ? '已关注' : '已取消关注',
+					icon: 'none'
+				})
 			},
 			async getDetail(articleId) {
 				try{
