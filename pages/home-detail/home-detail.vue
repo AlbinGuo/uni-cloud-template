@@ -36,18 +36,19 @@
 		data() {
 			return {
 				formData: {},
-				noData: `<p style="text-align:center;color:#333;">内容加载中...</p>`
+				noData:  ''//`<p style="text-align:center;color:#333;">加载中...</p>`
 			}
 		},
 		onLoad(query) {
 			this.formData = JSON.parse(query.params)
-			this.getDetail()
+			const {_id} = this.formData
+			this.getDetail(_id)
 		},
 		methods: {
-			async getDetail() {
+			async getDetail(articleId) {
 				try{
 					const res = await this.$api.get_detail ({
-						article_id: '626401a9cec89c00012ef68a'
+						article_id: articleId
 					})
 					if(res.code == 200){
 						this.formData = res.data
@@ -62,7 +63,8 @@
 
 <style lang="scss">
 	page{
-		padding: 0 20rpx;
+		padding: 0 40rpx;
+		box-sizing: border-box;
 	}
 	.wrap{
 		display: flex;
