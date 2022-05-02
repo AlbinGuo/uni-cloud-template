@@ -1,6 +1,6 @@
 <template>
-	<view class="icons"> 
-		<uni-icons :type="like ? 'heart-filled' : 'heart'" size="38upx" color="#aa55ff" @click="likeTap"></uni-icons>		
+	<view class="icons" @click.stop="likeTap"> 
+		<uni-icons :type="like ? 'heart-filled' : 'heart'" size="38upx" color="#aa55ff"></uni-icons>		
 	</view>
 </template> 
 

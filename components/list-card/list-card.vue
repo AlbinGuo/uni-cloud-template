@@ -1,5 +1,5 @@
 <template>
-	<view @click="open">
+	<view @click.stop="open">
 		<!-- 视频 -->
 		<!-- #ifndef APP-PLUS -->
 		<view class="list-card" v-if="item.mode === 'video'">

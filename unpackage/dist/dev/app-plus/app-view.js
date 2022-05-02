@@ -1432,7 +1432,7 @@ var render = function() {
       attrs: { _i: 0 },
       on: {
         click: function($event) {
-          return _vm.$handleViewEvent($event)
+          return _vm.$handleViewEvent($event, { stop: true })
         }
       }
     },
@@ -1780,17 +1780,16 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-uni-view",
-    { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
-    [
-      _c("uni-icons", {
-        attrs: { _i: 1 },
-        on: {
-          click: function($event) {
-            return _vm.$handleViewEvent($event)
-          }
+    {
+      staticClass: _vm._$g(0, "sc"),
+      attrs: { _i: 0 },
+      on: {
+        click: function($event) {
+          return _vm.$handleViewEvent($event, { stop: true })
         }
-      })
-    ],
+      }
+    },
+    [_c("uni-icons", { attrs: { _i: 1 } })],
     1
   )
 }
