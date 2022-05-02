@@ -15,9 +15,9 @@
 					<text>{{formData.thumbs_up_count || 0}}赞</text>
 				</view>
 			</view>
-			<view class="wrap-profile-follow">
+			<view class="wrap-profile-follow" @click="follow" :class="[isFollow ? 'unfollow' : 'followed']">
 				<view class="btn">
-					已关注
+					{{isFollow ? '已关注' : '关注他'}}
 				</view>
 			</view>
 		</view>
@@ -36,7 +36,8 @@
 		data() {
 			return {
 				formData: {},
-				noData:  ''//`<p style="text-align:center;color:#333;">加载中...</p>`
+				isFollow: false,
+				noData:   '' //`<p style="text-align:center;color:#333;">加载中...</p>`
 			}
 		},
 		onLoad(query) {
@@ -45,6 +46,9 @@
 			this.getDetail(_id)
 		},
 		methods: {
+			follow() {
+				this.isFollow = !this.isFollow
+			},
 			async getDetail(articleId) {
 				try{
 					const res = await this.$api.get_detail ({
@@ -101,17 +105,23 @@
 				}
 			}
 			&-follow {
+				text-align: center;
+				border-radius: 30rpx;
 				.btn {
 					font-size: 28rpx;
 					padding: 10rpx 20rpx;
 					color: #fff;
-					background-color: $mk-base-color;
-					border-radius: 30rpx;
 				}
 			}
 		}
 		&-richtext {
 			margin-top: 40rpx;
 		}
+	}
+	.unfollow{
+		background-color: #999999;
+	}
+	.followed{
+		background-color: $mk-base-color;
 	}
 </style>
