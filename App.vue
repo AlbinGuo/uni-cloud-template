@@ -15,6 +15,7 @@
 </script>
 
 <style>
+	@import '@/components/gaoyia-parse/parse.css';
 	/*每个页面公共css */
 	::v-deep #myVideo {
 		width: 100%;

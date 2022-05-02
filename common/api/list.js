@@ -28,3 +28,10 @@ export const get_search = (data) => {
 		data
 	})
 }
+
+export const get_detail = (data) => {
+	return $http({
+		url: 'get_detail',
+		data
+	})
+}

@@ -87,7 +87,8 @@
 			},
 			back() {
 				uni.switchTab({
-					url: "/pages/index/index"
+					url: "/pages/index/index",
+					
 				})
 				// uni.navigateBack({
 				// 	delta: 1
