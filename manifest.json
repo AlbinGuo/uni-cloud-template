@@ -1,5 +1,5 @@
 {
-    "name" : "unicloud-template",
+    "name" : "条条",
     "appid" : "__UNI__39A50C2",
     "description" : "",
     "versionName" : "1.0.0",
@@ -43,7 +43,14 @@
             /* ios打包配置 */
             "ios" : {},
             /* SDK配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "ad" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "C:/Users/Administrator/Desktop/音乐会员.png"
+                }
+            }
         }
     },
     /* 快应用特有相关 */
